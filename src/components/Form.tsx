@@ -56,7 +56,7 @@ export const Form: React.FC<FormPropsType> = ({dataEntries, setDataEntries}) => 
 
       setName('');
       setGoods('')
-      setOption('');
+      // setOption('');
       setQuantity('');
       setSum('');
    };

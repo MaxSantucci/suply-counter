@@ -5,7 +5,6 @@ import s from './App.module.css'
 import {EditableInput} from './components/EdatableInput';
 
 
-
 export type DataEntry = {
    name: string;
    goods: string
@@ -53,7 +52,14 @@ const App: React.FC = () => {
 
    useEffect(() => {
       calculateTotalAmount()
-   }, [dataEntries])
+   }, [dataEntries, setTotalNetAmount])
+
+   const handleBlur = () => {
+      setTotalNetAmount(totalNetAmount)
+      setTotalGrossAmount(totalGrossAmount)
+      console.log(totalGrossAmount)
+      console.log(totalNetAmount)
+   }
 
    return (
       <div>
@@ -76,44 +82,50 @@ const App: React.FC = () => {
                </tr>
                </thead>
                <tbody>
-               {dataEntries.map((entry, index) => (
-                  <tr key={index}>
-                     <td>
-                        <EditableInput
-                           type="text"
-                           value={entry.goods}
-                           onChange={(e) => handleInputChange(e, index, 'goods')}
-                           calculateTotalAmount={calculateTotalAmount}
-                        />
-                     </td>
-                     <td>
-                        <EditableInput
-                           type="text"
-                           value={entry.option}
-                           onChange={(e) => handleInputChange(e, index, 'option')}
-                           calculateTotalAmount={calculateTotalAmount}
-                        />
-                     </td>
-                     <td>
-                        <EditableInput
-                           type="number"
-                           value={entry.quantity}
-                           onChange={(e) => handleInputChange(e, index, 'quantity')}
-                           calculateTotalAmount={calculateTotalAmount}
-                        />
-                     </td>
-                     <td>
-                        <EditableInput
-                           type="number"
-                           value={entry.sum}
-                           onChange={(e) => handleInputChange(e, index, 'sum')}
-                           calculateTotalAmount={calculateTotalAmount}
-                        />
-                     </td>
-                     <td>{entry.netAmount}</td>
-                     <td>{entry.grossAmount}</td>
-                  </tr>
-               ))}
+               {dataEntries.map((entry, index) => {
+                  return (
+                     <tr key={index}>
+                        <td>
+                           <EditableInput
+                              type="text"
+                              value={entry.goods}
+                              onChange={(e) => handleInputChange(e, index, 'goods')}
+                              // onBlur={handleBlur}
+                              // calculateTotalAmount={calculateTotalAmount}
+                           />
+                        </td>
+                        <td>
+                           <EditableInput
+                              type="text"
+                              value={entry.option}
+                              onChange={(e) => handleInputChange(e, index, 'option')}
+                              // onBlur={handleBlur}
+                              // calculateTotalAmount={calculateTotalAmount}
+                           />
+                        </td>
+                        <td>
+                           <EditableInput
+                              type="number"
+                              value={entry.quantity}
+                              onChange={(e) => handleInputChange(e, index, 'quantity')}
+                              onBlur={handleBlur}
+                              // calculateTotalAmount={calculateTotalAmount}
+                           />
+                        </td>
+                        <td>
+                           <EditableInput
+                              type="number"
+                              value={entry.sum}
+                              onChange={(e) => handleInputChange(e, index, 'sum')}
+                              onBlur={handleBlur}
+                              // calculateTotalAmount={calculateTotalAmount}
+                           />
+                        </td>
+                        <td>{entry.netAmount}</td>
+                        <td>{entry.grossAmount}</td>
+                     </tr>
+                  )
+               })}
                </tbody>
                <tfoot>
                <tr>

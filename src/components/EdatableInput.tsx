@@ -6,16 +6,15 @@ type EditableInputPropsType = {
    value: string;
    onChange: (e: React.ChangeEvent<HTMLInputElement>, index: number, field: string) => void;
    onBlur?: () => void
-   calculateTotalAmount?: () => void
+   // calculateTotalAmount?: () => void
 }
-debugger
+
 export const EditableInput: React.FC<EditableInputPropsType> =
    ({
        type,
        value,
-       onChange,
        onBlur,
-       calculateTotalAmount
+       // calculateTotalAmount
     }) => {
       const [isEditMode, setIsEditMode] = useState<boolean>(false);
       const [newTitle, setNewTitle] = useState<string | number>(value);
@@ -33,9 +32,10 @@ export const EditableInput: React.FC<EditableInputPropsType> =
          onBlur && onBlur()
       }
 
-      useEffect(() => {
-         calculateTotalAmount && calculateTotalAmount()
-      }, [newTitle])
+      // useEffect(() => {
+      //    calculateTotalAmount && calculateTotalAmount()
+      // }, [newTitle])
+
 
       return (
          isEditMode ? (

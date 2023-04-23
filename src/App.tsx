@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Form} from './components/Form';
-import {EditableSpan} from './components/EditableSpan';
+import {Form} from './components/Form/Form';
+import {EditableSpan} from './components/EditableSpan/EditableSpan';
 import s from './App.module.css'
-import {EditableInput} from './components/EdatableInput';
+import {EditableInput} from './components/EditableInput/EdatableInput';
 
 
 export type DataEntry = {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {DataEntry} from '../App';
+import {DataEntry} from '../../App';
 import s from './form.module.css'
 
 type FormPropsType = {

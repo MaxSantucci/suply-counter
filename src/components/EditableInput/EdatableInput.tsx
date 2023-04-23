@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import s from './EditableSpan.module.css';
+import s from '../EditableSpan/EditableSpan.module.css';
 
 type EditableInputPropsType = {
    type: string;

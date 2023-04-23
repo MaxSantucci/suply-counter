@@ -1,0 +1,40 @@
+.editablespan {
+   margin-left: 30px;
+}
+
+.table {
+   width: 100%;
+   border-collapse: collapse;
+   font-size: 14px;
+   text-align: center;
+}
+
+.table th,
+.table td {
+   padding: 12px 15px;
+   text-align: center;
+   background-color: green;
+   border-bottom: 1px solid #e0e0e0;
+   color: black;
+}
+
+.table th {
+   background-color: orange;
+   color: black;
+}
+
+.table tbody tr:hover {
+   background-color: black;
+}
+
+.table tbody td {
+   color: black;
+}
+
+.table tbody tr:nth-child(even) {
+   background-color: yellow;
+}
+
+/*.table tbody tr:last-child td {*/
+/*   border-bottom: none;*/
+/*}*/
